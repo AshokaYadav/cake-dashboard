@@ -109,8 +109,11 @@ const ProductModal: React.FC<ProductModalProps> = ({
                 onChange={onInputChange}
                 className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
               >
-                <option value="SLIDER">Slider</option>
-                <option value="FEATURED">Featured</option>
+                <option value="SLIDER">slider</option>
+                <option value="FEATURED">offer</option>
+                <option value="SLIDER">first</option>
+                <option value="FEATURED">second</option>
+                <option value="FEATURED">third</option>
               </select>
             </div>
             <div>

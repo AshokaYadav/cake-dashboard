@@ -60,10 +60,11 @@ const [hasCheckedAuth, setHasCheckedAuth] = useState(false);
         <title>AeronPay Dashboard</title>
       </Head>
 
+//yaha se men inset-0 hataya hai bahi..
       {/* Sidebar Overlay */}
       {sidebarOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-20 lg:hidden"
+          className="fixed  bg-black bg-opacity-50 z-20 lg:hidden"
           onClick={toggleSidebar}
         ></div>
       )}
