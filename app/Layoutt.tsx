@@ -46,7 +46,7 @@ const [hasCheckedAuth, setHasCheckedAuth] = useState(false);
 //   }
 // }, [isAuthenticated, hasCheckedAuth]);
 
-  if (isAuthenticated) {
+  if (!isAuthenticated) {
     return <div>
       <main>
         {children}

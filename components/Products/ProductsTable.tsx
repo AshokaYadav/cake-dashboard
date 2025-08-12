@@ -10,13 +10,7 @@ type Props = {
   handleDelete: (id: string) => void;
 };
 
-const headersList = [
-  "Cake-Slider",
-  "Cake-Offers",
-  "Cake-type1",
-  "Cake-type2",
-  "Cake-type3",
-];
+const headersList = ["slider", "offer", "first", "second", "third"];
 
 const ProductsTable: React.FC<Props> = ({
   products,
@@ -25,25 +19,30 @@ const ProductsTable: React.FC<Props> = ({
   handleDelete,
 }) => {
   const [showPopup, setShowPopup] = useState(false);
-  const [selectedPositions, setSelectedPositions] = useState<string[]>([]);
+  const [selectedPositions, setSelectedPositions] = useState<Record<string, string>>({});
   const [selectedId, setSelectedId] = useState<string>("");
 
-  const handleCheckboxChange = (header: string) => {
-    if (selectedPositions.includes(header)) {
-      setSelectedPositions(selectedPositions.filter((h) => h !== header));
-    } else {
-      setSelectedPositions([...selectedPositions, header]);
-    }
+  const handleCheckboxChange = (header: string, index: number, checked: boolean) => {
+    const key = index === 0 ? "location" : `location${index + 1}`;
+    setSelectedPositions((prev) => {
+      const updated = { ...prev };
+      if (checked) {
+        updated[key] = header;
+      } else {
+        delete updated[key];
+      }
+      return updated;
+    });
   };
 
-  const handleSubmit = async (id: string) => {
-    // Create object with position, position1, position2...
-    const payload: Record<string, string> = {};
-    selectedPositions.forEach((header, index) => {
-      payload[`location${index === 0 ? "" : index}`] = header;
-    });
+  useEffect(() => {
+    console.log("Current Selected Positions:", selectedPositions);
+  }, [selectedPositions]);
 
-    
+  const handleSubmit = async (id: string) => {
+    const payload = { ...selectedPositions };
+    console.log("Final Payload:", payload);
+
     try {
       const res = await fetch(
         `https://216r2ntv-3016.inc1.devtunnels.ms/api/product/${id}`,
@@ -57,6 +56,7 @@ const ProductsTable: React.FC<Props> = ({
       if (res.ok) {
         alert("Position updated successfully!");
         setShowPopup(false);
+        setSelectedPositions({});
       } else {
         const errData = await res.json();
         alert("Failed: " + (errData.message || "Unknown error"));
@@ -153,12 +153,12 @@ const ProductsTable: React.FC<Props> = ({
               </thead>
               <tbody>
                 <tr>
-                  {headersList.map((header) => (
+                  {headersList.map((header, index) => (
                     <td key={header} className="border p-2 text-center">
                       <input
                         type="checkbox"
-                        checked={selectedPositions.includes(header)}
-                        onChange={() => handleCheckboxChange(header)}
+                        checked={Object.values(selectedPositions).includes(header)}
+                        onChange={(e) => handleCheckboxChange(header, index, e.target.checked)}
                       />
                     </td>
                   ))}
