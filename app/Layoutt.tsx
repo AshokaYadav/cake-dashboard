@@ -60,7 +60,7 @@ const [hasCheckedAuth, setHasCheckedAuth] = useState(false);
         <title>AeronPay Dashboard</title>
       </Head>
 
-//yaha se men inset-0 hataya hai bahi..
+{/* //yaha se men inset-0 hataya hai bahi.. */}
       {/* Sidebar Overlay */}
       {sidebarOpen && (
         <div
