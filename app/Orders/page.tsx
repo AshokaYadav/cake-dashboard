@@ -23,7 +23,7 @@ const ManagementPage = () => {
 
     fetchOrders();
   }, []);
-
+//herere
   const copyToClipboard = async (text: string) => {
     try {
       await navigator.clipboard.writeText(text);
