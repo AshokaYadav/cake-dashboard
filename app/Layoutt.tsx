@@ -57,7 +57,7 @@ const [hasCheckedAuth, setHasCheckedAuth] = useState(false);
   return (
     <div className={`min-h-screen flex flex-col ${sidebarOpen ? 'pl-64' : 'pl-20'}`}>
       <Head>
-        <title>AeronPay Dashboard</title>
+        <title>Fillerbay Dashboard</title>
       </Head>
 
 {/* //yaha se men inset-0 hataya hai bahi.. */}
