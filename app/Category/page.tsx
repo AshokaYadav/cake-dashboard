@@ -29,12 +29,13 @@ const ShowCategoriesPage = () => {
   );
   const [subCategoryName, setSubCategoryName] = useState("");
 
-  const API_URL = "https://216r2ntv-3016.inc1.devtunnels.ms/api";
+  const API_URL = "https://backend.fillerbay.in/api";
 
   const fetchCategories = async () => {
     try {
       const res = await fetch(`${API_URL}/category`);
       const data = await res.json();
+      console.log(data);
       setCategories(data);
     } catch (err) {
       console.error("Error fetching categories:", err);

@@ -33,7 +33,7 @@ const ShowUsers = () => {
 
   const fetchUsers = async () => {
     try {
-      const res = await fetch('https://216r2ntv-3016.inc1.devtunnels.ms/api/user');
+      const res = await fetch('https://backend.fillerbay.in/api/user');
       const data = await res.json();
       setUsers(data);
     } catch (err) {
@@ -49,7 +49,7 @@ const ShowUsers = () => {
 
   const handleSubmit = async () => {
     try {
-      const res = await fetch('https://216r2ntv-3016.inc1.devtunnels.ms/api/user', {
+      const res = await fetch('https://backend.fillerbay.in/api/user', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),

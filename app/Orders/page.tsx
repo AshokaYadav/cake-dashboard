@@ -9,7 +9,7 @@ const ManagementPage = () => {
     const fetchOrders = async () => {
       try {
         const res = await fetch(
-          "https://216r2ntv-3016.inc1.devtunnels.ms/api/order"
+          "https://backend.fillerbay.in/api/order"
         );
         if (!res.ok) throw new Error("Failed to fetch orders");
         const orders = await res.json();

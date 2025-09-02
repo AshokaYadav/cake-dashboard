@@ -45,7 +45,7 @@ const ProductsTable: React.FC<Props> = ({
 
     try {
       const res = await fetch(
-        `https://216r2ntv-3016.inc1.devtunnels.ms/api/product/${id}`,
+        `https://backend.fillerbay.in/api/product/${id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },

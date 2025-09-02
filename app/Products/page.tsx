@@ -24,8 +24,8 @@ const ProductsPage = () => {
   );
   const [subcategories, setSubcategories] = useState<SubCategory[]>([]);
 
-  const API_URL = "https://216r2ntv-3016.inc1.devtunnels.ms/api";
-  const img_url = "https://216r2ntv-3016.inc1.devtunnels.ms";
+  const API_URL = "https://backend.fillerbay.in/api";
+  const img_url = "https://backend.fillerbay.in";
 
   const [formData, setFormData] = useState({
     name: "",
