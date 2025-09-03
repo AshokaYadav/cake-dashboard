@@ -25,19 +25,19 @@ export const metadata: Metadata = {
       },
       {
         url: "/fillerbay.png",
-        type: "image/jpg",
+        type: "image/png",
         sizes: "16x16",
       },
       {
        url: "/fillerbay.png",
-        type: "image/jpg",
+        type: "image/png",
         sizes: "32x32",
       },
     ],
     apple: {
       url: "/fillerbay.png",
       sizes: "180x180",
-      type: "image/jpg",
+      type: "image/png",
     },
     shortcut: {
       url: "/fillerbay.png",
